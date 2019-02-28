@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2 col-sm-12">
+            <div class="card">
+                <div class="header text-center">
+                    <h4 class="title">Log In</h4>
+                </div>
+                <div class="content">
+                    <form [formGroup]="_form" #f="ngForm" (ngSubmit)="_form.valid && submit()" validate>
+                        <!-- EMAIL -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control border-input" emailValid required
+                                        formControlName="email" [ngClass]="{ 'form-input-error': f.submitted && email.invalid }"
+                                        placeholder="Email">
+                                    <small hidden [ngClass]="{ 'form-input-error-message': f.submitted && email.invalid }">Email
+                                        is required</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PASSWORD -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control border-input" formControlName="password"
+                                        [ngClass]="{ 'form-input-error': f.submitted && password.invalid }" placeholder="Password"
+                                        required>
+                                    <small hidden [ngClass]="{ 'form-input-error-message': f.submitted && password.invalid }">Password
+                                        is required</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LOG IN BUTTON -->
+                        <div class="row">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-info btn-fill btn-wd">Log In</button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="text-center">
+                                <app-facebook-login [returnUrl]="returnUrl"></app-facebook-login>
+                                <a href="javascript:void(0)" (click)="launchFbLogin()" id="facebook" class="btn btn-icon btn-fill btn-google"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- LOADER -->
+                        <div class="row">
+                            <div class="row mini-loader-container" *ngIf="loading">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+
+                        <!-- REGISTER & FORGOT PASSWORD -->
+                        <div class="row">
+                            <div class="text-center h-8 v-align-container">
+                                <br>
+                                <p>
+                                    Don't have an account? <a [routerLink]='["/register"]'>Register</a>
+                                </p>
+                                <p class="v-align-bottom">
+                                    You forgot your password? <a class="cursor-pointer" data-toggle="modal" data-target="#forgot-password-modal">Click here</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- CLEARFIX -->
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALS -->
+    <forgot-password-modal></forgot-password-modal>
+</div>

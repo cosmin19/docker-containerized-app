@@ -1,0 +1,9 @@
+<a href="javascript:void(0)" (click)="launchFbLogin()" id="facebook" class="btn btn-icon btn-fill btn-facebook"><i class="fa fa-facebook"></i></a>
+
+<div *ngIf="failed" class="alert alert-danger" role="alert">
+    <p><strong>Oops!</strong> Your facebook login failed.</p>
+    <ul>
+        <li>Error: {{error}}</li>
+        <li>Description: {{errorDescription}}</li>
+    </ul>
+</div>

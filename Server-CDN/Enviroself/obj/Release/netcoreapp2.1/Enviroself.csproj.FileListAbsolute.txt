@@ -1,0 +1,15 @@
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\bin\Release\netcoreapp2.1\Enviroself.deps.json
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\bin\Release\netcoreapp2.1\Enviroself.runtimeconfig.json
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\bin\Release\netcoreapp2.1\Enviroself.runtimeconfig.dev.json
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\bin\Release\netcoreapp2.1\Enviroself.dll
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\bin\Release\netcoreapp2.1\Enviroself.pdb
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.csprojAssemblyReference.cache
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.csproj.CoreCompileInputs.cache
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.RazorAssemblyInfo.cache
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.RazorAssemblyInfo.cs
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.AssemblyInfoInputs.cache
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.AssemblyInfo.cs
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.RazorTargetAssemblyInfo.cache
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.dll
+D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself\obj\Release\netcoreapp2.1\Enviroself.pdb

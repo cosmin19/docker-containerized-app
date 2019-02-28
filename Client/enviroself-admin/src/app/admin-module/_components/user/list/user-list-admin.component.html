@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="card card-map">
+        <div class="header">
+            <h4 class="title">Users</h4>
+        </div>
+        <hr>
+
+        <div class="content">
+            <!-- TABLE -->
+            <p-table [lazy]="true" (onLazyLoad)="loadUsersLazy($event)" [totalRecords]="usersTotalItems" [value]="users"
+                [responsive]="true" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[5,10,20,50,100]"
+                [resizableColumns]="true" [loading]="isRequested">
+                <!-- HEADER -->
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th pResizableColumn>
+                            Email
+                        </th>
+
+                        <th pResizableColumn>
+                            Firstname
+                        </th>
+
+                        <th pResizableColumn>
+                            Lastname
+                        </th>
+
+                        <th pResizableColumn [style.width]="'7%'">
+                            Role
+                        </th>
+
+                        <th pResizableColumn [style.width]="'10%'">
+                            Email Confirmed
+                        </th>
+
+                        <th pResizableColumn [style.width]="'8%'">
+                            Created On
+                        </th>
+
+                        <th pResizableColumn [style.width]="'8%'">
+                            Actions
+                        </th>
+                    </tr>
+                </ng-template>
+
+                <!-- BODY -->
+                <ng-template pTemplate="body" let-user let-columns="columns">
+                    <tr>
+                        <td class="ui-resizable-column">
+                            {{user.email}}
+                        </td>
+
+                        <td class="ui-resizable-column">
+                            {{user.firstname}}
+                        </td>
+
+                        <td class="ui-resizable-column">
+                            {{user.lastname}}
+                        </td>
+
+                        <td class="ui-resizable-column">
+                            {{user.role}}
+                        </td>
+
+                        <td class="ui-resizable-column text-center">
+                            <span class="ti-check" *ngIf="user.emailConfirmed" style="color:green"></span>
+                            <span class="ti-close" *ngIf="!user.emailConfirmed" style="color:red"></span>
+                        </td>
+
+                        <td class="ui-resizable-column">
+                            {{user.createdOnUtc}}
+                        </td>
+
+                        <td class="text-center">
+                            <button class="btn btn-simple color-danger" [routerLink]="['/admin/user']" [queryParams]="{userId: user.id}">
+                                View
+                            </button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <!-- SUMMART -->
+                <ng-template pTemplate="summary">
+                    Total: {{ usersTotalItems }} users
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

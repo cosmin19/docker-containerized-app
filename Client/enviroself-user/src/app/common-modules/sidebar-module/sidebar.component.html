@@ -1,0 +1,71 @@
+<div class="sidebar-wrapper" style="width: 100%;">
+    <div class="logo">
+        <a class="simple-text" style="font-weight: bold;">
+            <div class="logo-img">
+                <img src="../../assets/img/enviroself-logo/enviroself-logo.png" alt="" style="border-radius: 100%;">
+            </div>
+            Enviroself
+        </a>
+    </div>
+    <ul class="nav">
+        <!-- Email: Mobile device -->
+        <li *ngIf="isMobileMenu() && isLoggedIn">
+            <a class="cursor-pointer">
+                <p>{{getUserEmail()}}</p>
+            </a>
+        </li>
+
+        <!-- Notifications: Mobile device -->
+        <li class="dropdown" *ngIf="isMobileMenu() && isLoggedIn">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="ti-bell"></i>
+                <p class="notification">5</p>
+                <p>Notifications</p>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Notification 1</a></li>
+                <li><a href="#">Notification 2</a></li>
+                <li><a href="#">Notification 3</a></li>
+                <li><a href="#">Notification 4</a></li>
+                <li><a href="#">Another notification</a></li>
+            </ul>
+        </li>
+
+
+        <!-- Pages -->
+        <li class="divider" *ngIf="isMobileMenu() && isLoggedIn"></li>
+        <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+            <a [routerLink]="[menuItem.path]" (click)="sidebarToggle()">
+                <i class="{{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+
+        <!-- Log In: Mobile device -->
+        <li class="divider" *ngIf="isMobileMenu() && isLoggedIn"></li>
+
+        <li *ngIf="isMobileMenu() && !isLoggedIn" routerLinkActive="active">
+            <a class="cursor-pointer" [routerLink]='["/login"]' (click)="sidebarToggle()">
+                <i class="ti-user"></i>
+                <p>Log In</p>
+            </a>
+        </li>
+
+        <!-- Change password: Mobile device -->
+        <li *ngIf="isMobileMenu() && isLoggedIn" routerLinkActive="active">
+            <a class="cursor-pointer" [routerLink]='["/change-password"]' (click)="sidebarToggle()">
+                <i class="ti-key"></i>
+                <p>Change password</p>
+            </a>
+        </li>
+
+        <!-- Log Out: Mobile device -->
+        <li *ngIf="isMobileMenu() && isLoggedIn">
+            <a class="cursor-pointer" (click)="logOut()" (click)="sidebarToggle()">
+                <i class="ti-shift-left-alt"></i>
+                <p>Log Out</p>
+            </a>
+        </li>
+    </ul>
+</div>

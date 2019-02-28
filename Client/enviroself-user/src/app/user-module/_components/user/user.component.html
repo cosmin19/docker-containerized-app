@@ -1,0 +1,132 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5 col-md-6">
+            <div class="card card-user">
+                <div class="image">
+                    <img src="assets/img/background.jpg" alt="..." />
+                </div>
+                <div class="content">
+                    <div class="author">
+                        <!-- <img class="avatar border-white" [src]="pictureUrl" alt="..." /> -->
+                        <ngx-avatar class="ngx-avatar" [src]="pictureUrl" [name]="pictureName" [size]="100"></ngx-avatar>
+                        <h4 class="title">{{user?.firstname}} {{user?.lastname}}
+                            <br />
+                            <a><small>{{user?.email}}</small></a>
+                        </h4>
+                    </div>
+                    <p class="description text-center">
+                        "Play smart."
+                    </p>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-1">
+                            <h5>{{user?.totalFiles}}<br /><small>Files</small></h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>{{user?.totalFilesSize}}<br /><small>Used</small></h5>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>-<br /><small>Remained</small></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-6">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6 pull-right" style="padding-top: 2rem">
+                            <a type="button" class="dropdown-toggle cursor-pointer"
+                                data-toggle="dropdown">
+                                <span class="pull-right"><span class="caret"></span>
+                                &nbsp;Other Actions</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="cursor-pointer" data-toggle="modal" data-target="#change-email-modal">Change Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="header">
+                    <h4 class="title">Edit Profile</h4>
+                </div>
+                <div class="content">
+                    <form [formGroup]="_form" #f="ngForm" (ngSubmit)="_form.valid && submit()" validate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control border-input" disabled placeholder="Email"
+                                        value="{{user?.email}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control border-input" placeholder="Phone"
+                                        formControlName="phone">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control border-input"
+                                        formControlName="gender">
+                                        <option *ngFor="let gender of genderList" value="{{ gender.value }}">
+                                            {{ gender.text }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control border-input" placeholder="Firstname"
+                                        formControlName="firstname">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control border-input" placeholder="Lastname"
+                                        formControlName="lastname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>About Me</label>
+                                    <textarea rows="5" class="form-control border-input" placeholder="Here can be your description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                            </div>
+                        </div>
+                        <!-- LOADER -->
+                        <div class="row">
+                            <div class="row mini-loader-container" *ngIf="loading">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- MODALS -->
+        <change-email-modal></change-email-modal>
+    </div>
+</div>

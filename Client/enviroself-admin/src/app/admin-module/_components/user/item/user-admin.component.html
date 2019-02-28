@@ -1,0 +1,158 @@
+<div class="container-fluid">
+    <div class="card card-map">
+        <div class="header">
+            <h4 class="title row" style="display: flex">
+                <div class="col-md-1" style="padding: 0;">
+                    <ngx-avatar class="ngx-avatar-admin" [src]="pictureUrl" [name]="pictureName" [size]="60"></ngx-avatar> 
+                </div>
+                <div class="col-md-11" style="padding-top: 15px;">
+                    <p>
+                        {{user?.email}}
+                    </p>
+                </div>
+            </h4>
+        </div>
+        <hr>
+
+        <div class="content">
+            <form [formGroup]="_form" #f="ngForm" (ngSubmit)="_form.valid && submit()" validate>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="display: flex; margin: 0">Email address - 
+                                <div class="checkbox" style="padding-left: 25px; margin: 0;">
+                                    <input id="checkbox02" type="checkbox" [checked]="!emailDisabled" (change)="emailDisabled = !emailDisabled" >
+                                    <label for="checkbox02">
+                                        Edit
+                                    </label>
+                                </div>
+                            </label>
+                            <input type="email" class="form-control border-input" emailValid placeholder="Email"
+                                formControlName="email" [attr.disabled]="emailDisabled ? '' : null">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Role</label>
+                            <select class="form-control border-input" formControlName="role">
+                                <option *ngFor="let role of roleList" value="{{ role.value }}">
+                                    {{ role.text }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control border-input" placeholder="Firstname"
+                                formControlName="firstname">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control border-input" placeholder="Lastname" formControlName="lastname">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control border-input" placeholder="Phone Number"
+                                formControlName="phoneNumber">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select class="form-control border-input" formControlName="gender">
+                                <option *ngFor="let gender of genderList" value="{{ gender.value }}">
+                                    {{ gender.text }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Access Failed Count</label>
+                            <input type="text" class="form-control border-input" placeholder="Access Failed Count"
+                                formControlName="accessFailedCount">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Lockout End</label>
+                            <input type="text" class="form-control border-input" placeholder="Lockout End"
+                                formControlName="lockoutEnd">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Facebook Id</label>
+                            <input type="text" class="form-control border-input" placeholder="Facebook Id"
+                                formControlName="facebookId">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Created On Utc</label>
+                            <input type="text" class="form-control border-input" placeholder="Created On Utc"
+                                formControlName="createdOnUtc">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <input id="checkbox12" type="checkbox" value="" formControlName="emailConfirmed">
+                                <label for="checkbox12">
+                                    Email Confirmed
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <input id="checkbox22" type="checkbox" value="" formControlName="lockoutEnabled">
+                                <label for="checkbox22">
+                                    Lockout Enabled
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                    </div>
+                </div>
+                <!-- LOADER -->
+                <div class="row">
+                    <div class="row mini-loader-container" *ngIf="loading">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+
+        </div>
+    </div>
+</div>

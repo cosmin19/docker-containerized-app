@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2 col-sm-12">
+            <div class="card">
+                <div class="header text-center">
+                    <h4 class="title">Register</h4>
+                </div>
+                <div class="content">
+                    <form [formGroup]="_form" #f="ngForm" (ngSubmit)="_form.valid && submit()" validate>
+                        <!-- EMAIL -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Firstname</label>
+                                    <input type="text" class="form-control border-input" required formControlName="firstname" [ngClass]="{ 'form-input-error': f.submitted && firstname.invalid }" placeholder="Firstname">
+                                    <small hidden [ngClass]="{ 'form-input-error-message': f.submitted && firstname.invalid }">Firstname is required</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Lastname</label>
+                                    <input type="text" class="form-control border-input" required formControlName="lastname" [ngClass]="{ 'form-input-error': f.submitted && lastname.invalid }" placeholder="Lastname">
+                                    <small hidden [ngClass]="{ 'form-input-error-message': f.submitted && lastname.invalid }">Lastname is required</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="emil" class="form-control border-input" emailValid required formControlName="email" [ngClass]="{ 'form-input-error': f.submitted && email.invalid }" placeholder="Email">
+                                    <small hidden [ngClass]="{ 'form-input-error-message': f.submitted && email.invalid }">Email is required</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PASSWORD -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control border-input" formControlName="password" minlength="6" [ngClass]="{ 'form-input-error': f.submitted && password.invalid }" placeholder="Password" required>
+                                    <small hidden [ngClass]="{ 'form-input-error-message': f.submitted && password.invalid }">Password is required</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Confirm Password</label>
+                                    <input type="password" class="form-control border-input" formControlName="confirmPassword" [ngClass]="{ 'form-input-error': f.submitted && confirmPassword.invalid }" placeholder="Confirm Password" required>
+                                    <small hidden [ngClass]="{ 'form-input-error-message': f.submitted && confirmPassword.invalid }">Passwords missmatch</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TERM AND CONDITIONS -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <input id="checkbox12" type="checkbox" value="" required formControlName="termsAndConditions">
+                                        <label for="checkbox12">
+                                            By creating an account you agree to our terms - <a href="#">Read more</a>
+                                        </label>
+                                        <small hidden [ngClass]="{ 'form-input-error-message': f.submitted && termsAndConditions.invalid }">Please accept our terms and conditions.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REGISTER BUTTON -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-info btn-fill btn-wd">Register</button>
+                        </div>
+
+                        <br>
+                        <div class="row">
+                            <div class="text-center">
+                                <app-facebook-login></app-facebook-login>
+                                <a href="javascript:void(0)" (click)="launchFbLogin()" id="facebook" class="btn btn-icon btn-fill btn-google"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+
+
+                        <!-- LOADER -->
+                        <div class="row mini-loader-container" *ngIf="loading">
+                            <div class="loader"></div>
+                        </div>
+
+                        <!-- LOGIN -->
+                        <div class="text-center h-4 v-align-container">
+                            <p class="v-align-bottom">
+                                Already have an account? <a [routerLink]='["/login"]'>Login</a>
+                            </p>
+                        </div>
+
+                        <!-- CLEARFIX -->
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,1 @@
+dotnet Enviroself.dll

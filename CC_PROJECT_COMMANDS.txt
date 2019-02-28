@@ -1,0 +1,27 @@
+##### 1. Database #####
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=PASSWORD' --name SqlServer -p 1401:1433 -d microsoft/mssql-server-linux:2017-latest
+
+##### 2. Build server #####
+cd D:\Developer\VS_Projects\CC_Project\Server\Enviroself
+docker build -f Dockerfile -t enviroself-server .
+docker run -d --net=bridge -it --rm -p 50000:80 --name=server enviroself-server
+docker exec -it server /bin/bash
+dotnet Enviroself.dll
+
+##### 3. Build CDN server #####
+cd D:\Developer\VS_Projects\CC_Project\Server-CDN\Enviroself
+docker build -f Dockerfile -t enviroself-server-cdn .
+docker run -d --net=bridge -it --rm -p 50001:80 --name=server-cdn enviroself-server-cdn
+docker exec -it server-cdn /bin/bash
+dotnet Enviroself.dll
+
+##### 4. Build Client - User #####
+cd D:\Developer\VS_Projects\CC_Project\Client\enviroself-user
+# docker build -f Dockerfile -t enviroself-user . - ALREADY CREATED
+docker run -d -it --rm -p 8080:4200 -v ${pwd}/src:/app/src enviroself-user
+
+##### 5. Build Client - Admin #####
+cd D:\Developer\VS_Projects\CC_Project\Client\enviroself-admin
+# docker build -f Dockerfile -t enviroself-admin . - ALREADY CREATED
+docker run -d -it --rm -p 8081:4200 -v ${pwd}/src:/app/src enviroself-admin
+

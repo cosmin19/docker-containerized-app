@@ -1,0 +1,181 @@
+/* You can add global styles to this file, and also import other style files */
+.h-4 {
+    height: 4rem !important;
+}
+
+.h-6 {
+    height: 6rem !important;
+}
+
+.h-8 {
+    height: 8rem !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.mini-loader-container {
+    height: 6rem !important;
+}
+
+.tiny-loader-container {
+    display: inline-block;
+    padding: 0px 3rem 10px 0;
+} 
+.tiny-loader-container .loader {
+    font-size: 4px !important;
+}
+
+.mini-loader-container .loader {
+    font-size: 5px !important;
+    top: calc(50% - 15px) !important;
+}
+
+@media (min-width: 768px ) {
+    .v-align-container {
+        position: relative;
+    }
+  
+    .v-align-bottom {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+}
+
+.form-input-error {
+    border-color: red !important;
+}
+
+.form-input-error-message {
+    display: block;
+    color: red;
+}
+
+/* 
+    SideBar toggle User/Admin
+*/
+.sidebar-toggle-selection {
+    margin: 0 20px;
+}
+.sidebar-toggle-selection .nav {
+    margin-top: 0;
+}
+.sidebar-user-button-active {
+    border: 1px solid green;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+.sidebar-user-button-active:focus {
+    outline: none !important;
+}
+.sidebar-user-button-inactive {
+    color: #66615B;
+}
+.sidebar-user-button-inactive:hover {
+    color:white;
+    background-color: green;
+    border-color: green;
+    border:1px solid green;
+}
+.sidebar-admin-button-active {
+    border: 1px solid #dd0330;
+    background-color:#dd0330;
+    color:white;
+    font-weight: bold;
+}
+.sidebar-admin-button-active:focus {
+    outline: none !important;
+}
+.sidebar-admin-button-inactive {
+    color:#66615B;
+}
+.sidebar-admin-button-inactive:hover {
+    color:white;
+    background-color: #dd0330;
+    border-color: #dd0330;
+    border:1px solid #dd0330;
+}
+
+.activation-success-text {
+    color: green;
+}
+
+.activation-failed-text {
+    color: #dd0330;
+}
+
+.btn-facebook {
+    border-color: #3b5998 !important;
+    color: white !important;
+    background-color: #3b5998 !important;
+    margin: 0 3px !important; 
+}
+
+.btn-facebook:hover {
+    border-color: #3b5998 !important;
+    color: white !important;
+    background-color: #3b5998 !important;
+}
+
+.btn-google {
+    border-color: #dd4b39 !important;
+    color: white !important;
+    background-color: #dd4b39 !important;
+    margin: 0 3px !important; 
+}
+
+.btn-google:hover {
+    border-color: #dd4b39 !important;
+    color: white !important;
+    background-color: #dd4b39 !important;
+}
+
+
+
+.ngx-avatar .avatar-container {
+    margin: auto !important;
+    position: relative !important;
+    /* width: 94px !important;
+    height: 94px !important; */
+}
+
+.ngx-avatar .avatar-content {
+    border: 5px solid #fff !important;
+    font: 33px/90px Helvetica, Arial, sans-serif !important;
+}
+
+.ngx-avatar-admin .avatar-content {
+    border: 5px solid #fff !important;
+    font: 20px/50px Helvetica, Arial, sans-serif !important;
+}
+
+
+.search-bar-container {
+    margin: 0;
+    position: relative;
+    background-color: white;
+    position: relative;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+}
+
+.search-bar-container .input-group-addon{
+    padding: 7px;
+    background-color: white;
+}
+
+.search-bar-container .form-control{
+    height: 28px !important;
+}
+
+.color-danger {
+    color: #dd0330 !important;
+}

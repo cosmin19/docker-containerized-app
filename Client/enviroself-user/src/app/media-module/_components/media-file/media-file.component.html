@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="card card-map">
+        <div class="header">
+            <h4 class="title">Media files</h4>
+            <p-fileUpload #form mode="basic" name="myFile[]" customUpload="true" (uploadHandler)="upload($event, form)" chooseLabel="Upload file"></p-fileUpload>
+        </div>
+        <div class="content">
+            <!-- TABLE -->
+            <p-table [lazy]="true" (onLazyLoad)="loadLazy($event)" [totalRecords]="totalItems" [value]="list"
+                [responsive]="true" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[5,10,20,50,100]"
+                [resizableColumns]="true" [loading]="isRequested">
+                <!-- HEADER -->
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th pResizableColumn>
+                            Title
+                        </th>
+
+                        <th pResizableColumn>
+                            Size
+                        </th>
+
+                        <th pResizableColumn [style.width]="'10%'">
+                            Created On
+                        </th>
+
+                        <th pResizableColumn [style.width]="'8%'">
+                            Actions
+                        </th>
+                    </tr>
+                </ng-template>
+
+                <!-- BODY -->
+                <ng-template pTemplate="body" let-file let-columns="columns">
+                    <tr>
+                        <td class="ui-resizable-column">
+                            {{file.title}}
+                        </td>
+
+                        <td class="ui-resizable-column">
+                            {{file.size}}
+                        </td>
+
+                        <td class="ui-resizable-column">
+                            {{file.createdOnUtc}}
+                        </td>
+
+                        <td class="text-center">
+                            <button class="btn btn-simple color-success" (click)="download(file.id, file.title)">
+                                Download
+                            </button>
+                            <button class="btn btn-simple color-danger" data-toggle="modal" data-target="#confirmation-modal" (click)="delete(file.id)">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <!-- SUMMART -->
+                <ng-template pTemplate="summary">
+                    Total: {{ totalItems }} files
+                </ng-template>
+            </p-table>
+
+            <confirmation-modal [summary]="confirmationSummary" [details]="confirmationDetails" (response)="confirmationResponse($event)"></confirmation-modal>
+        </div>
+    </div>
+</div>

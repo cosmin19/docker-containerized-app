@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2 col-sm-12">
+            <div class="card">
+                <div class="header text-center">
+                    <h4 class="title">Email confirmation</h4>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div *ngIf="responseReceived; else waitForResponse">
+                                <h3 *ngIf="successfullyActivated" class="activation-success-text">Success!</h3>
+                                <h3 *ngIf="!successfullyActivated" class="activation-failed-text">Failed!</h3>
+                                <p>
+                                    Go to <a [routerLink]='["/login"]'>Login</a>
+                                </p>
+                            </div>
+                            <ng-template #waitForResponse>
+                                <h3>Loading...</h3>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
